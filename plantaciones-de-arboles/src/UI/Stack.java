@@ -1,6 +1,6 @@
 package UI;
 
-import logic.StackArrayGeneric;
+import logic.StackArbol;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -10,7 +10,7 @@ public class Stack extends javax.swing.JFrame {
     GUI menu = logic.Main.getGUI();
     Timer cronometro;
     Timer cronometro2;
-    StackArrayGeneric stack = new StackArrayGeneric();
+    StackArbol stack = new StackArbol();
     
     /**
      * Creates new form Stack
@@ -309,7 +309,7 @@ public class Stack extends javax.swing.JFrame {
     private void jButtonSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSizeActionPerformed
         // TODO add your handling code here:
         try{
-            stack = new StackArrayGeneric(Integer.parseInt(jTextFieldSize.getText()));
+            stack = new StackArbol(Integer.parseInt(jTextFieldSize.getText()));
             JOptionPane.showMessageDialog(null, "Tamaño actualizado con éxito");
             jLabelSize.setText(jTextFieldSize.getText());
         } catch(Exception ex){
