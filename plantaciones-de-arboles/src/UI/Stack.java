@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 public class Stack extends javax.swing.JFrame {
-    GUI menu = business.Main.getGUI();
+    GUI menu = logic.Main.getGUI();
     Timer cronometro;
     
     /**
@@ -37,7 +37,7 @@ public class Stack extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonEjecutar.setText("Ejecutar cola");
+        jButtonEjecutar.setText("Ejecutar  Pila");
         jButtonEjecutar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEjecutarActionPerformed(evt);
@@ -71,7 +71,7 @@ public class Stack extends javax.swing.JFrame {
         jLabelTimer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTimer.setText("Timer");
 
-        jLabelCronometro.setText("0");
+        jLabelCronometro.setText("-");
 
         jLabelTime.setText("Tiempo:");
 

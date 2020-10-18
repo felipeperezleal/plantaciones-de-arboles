@@ -6,7 +6,7 @@ import javax.swing.Timer;
 
 
 public class LinkedList extends javax.swing.JFrame {
-    GUI menu = business.Main.getGUI();
+    GUI menu = logic.Main.getGUI();
     Timer cronometro;
     
     /**

@@ -1,11 +1,11 @@
 package UI;
-import business.Main;
+import logic.Main;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 public class Queue extends javax.swing.JFrame {
-    GUI menu = business.Main.getGUI();
+    GUI menu = logic.Main.getGUI();
     Timer cronometro;
     
     /**
@@ -38,7 +38,7 @@ public class Queue extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonEjecutar.setText("Ejecutar cola");
+        jButtonEjecutar.setText("Ejecutar Cola");
         jButtonEjecutar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEjecutarActionPerformed(evt);
@@ -72,7 +72,7 @@ public class Queue extends javax.swing.JFrame {
         jLabelTimer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTimer.setText("Timer");
 
-        jLabelCronometro.setText("0");
+        jLabelCronometro.setText("-");
 
         jLabelTime.setText("Tiempo:");
 
