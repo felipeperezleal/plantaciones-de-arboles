@@ -72,7 +72,7 @@ public class Queue extends javax.swing.JFrame {
         jLabelTimer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTimer.setText("Timer");
 
-        jLabelCronometro.setText("-");
+        jLabelCronometro.setText("0");
 
         jLabelTime.setText("Tiempo:");
 
@@ -137,7 +137,7 @@ public class Queue extends javax.swing.JFrame {
         menu.setVisible(true);
     }//GEN-LAST:event_jButtonVolverActionPerformed
 
-    int time = 0;
+    int time = 1;
     private void jButtonEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEjecutarActionPerformed
         // TODO add your handling code here:
         cronometro = new Timer(1000, new ActionListener() {
