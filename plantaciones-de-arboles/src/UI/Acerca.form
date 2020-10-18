@@ -23,18 +23,20 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelHechoPor" max="32767" attributes="0"/>
+                  <Component id="jLabelHechoPor" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelIntegrante1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelIntegrante3" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelIntegrante2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelIntegrante4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelIntegrante1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" min="-2" pref="257" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="0" min="-2" pref="257" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="95" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -46,15 +48,19 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelHechoPor" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jLabelIntegrante1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelIntegrante3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelIntegrante2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabelIntegrante1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelIntegrante4" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,6 +68,9 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabelHechoPor">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Proyecto realizado por:"/>
       </Properties>
     </Component>
@@ -72,17 +81,29 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelIntegrante2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Integrante"/>
+        <Property name="text" type="java.lang.String" value="Jhon Albert Navia"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelIntegrante3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Integrante"/>
+        <Property name="text" type="java.lang.String" value="Erwin Soto Sarmiento"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelIntegrante4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Integrante"/>
+        <Property name="text" type="java.lang.String" value="Juan Jos&#xe9; Ram&#xed;rez"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Estructuras de Datos"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Universidad Nacional de Colombia"/>
       </Properties>
     </Component>
   </SubComponents>

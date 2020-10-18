@@ -3,10 +3,13 @@ package business;
 import UI.GUI;
 
 public class Main {
+    static GUI screen = new GUI();
 
     public static void main(String[] args) {
-        GUI screen = new GUI();
         screen.setVisible(true);
     }
     
+    public static GUI getGUI(){
+        return screen;
+    }
 }

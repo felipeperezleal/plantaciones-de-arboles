@@ -22,6 +22,9 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButtonQueue = new javax.swing.JButton();
+        jButtonLinkedList = new javax.swing.JButton();
+        jButtonStack = new javax.swing.JButton();
         lbTitle = new javax.swing.JLabel();
         jMenu = new javax.swing.JMenuBar();
         item1 = new javax.swing.JMenu();
@@ -31,24 +34,55 @@ public class GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jButtonQueue.setText("Cola");
+        jButtonQueue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonQueueActionPerformed(evt);
+            }
+        });
+
+        jButtonLinkedList.setText("Lista Enlazada");
+        jButtonLinkedList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLinkedListActionPerformed(evt);
+            }
+        });
+
+        jButtonStack.setText("Pila");
+        jButtonStack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonStackActionPerformed(evt);
+            }
+        });
+
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitle.setText("Plantaciones de Árboles");
+        lbTitle.setText("Plantaciones de árboles");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 834, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonStack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonLinkedList, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                    .addComponent(jButtonQueue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(371, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbTitle)
-                .addContainerGap(396, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonQueue)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonLinkedList)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonStack)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         item1.setText("Archivo");
@@ -81,14 +115,11 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -104,6 +135,27 @@ public class GUI extends javax.swing.JFrame {
         Acerca acerca = new Acerca(this, rootPaneCheckingEnabled);
         acerca.setVisible(true);
     }//GEN-LAST:event_jMenuItemAcercaDeActionPerformed
+
+    private void jButtonQueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonQueueActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        Queue cola = new Queue();
+        cola.setVisible(true);
+    }//GEN-LAST:event_jButtonQueueActionPerformed
+
+    private void jButtonLinkedListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLinkedListActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        LinkedList listaEnlazada = new LinkedList();
+        listaEnlazada.setVisible(true);
+    }//GEN-LAST:event_jButtonLinkedListActionPerformed
+
+    private void jButtonStackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStackActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        Stack pila = new Stack();
+        pila.setVisible(true);
+    }//GEN-LAST:event_jButtonStackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,9 +192,12 @@ public class GUI extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu item1;
+    private javax.swing.JButton jButtonLinkedList;
+    private javax.swing.JButton jButtonQueue;
+    private javax.swing.JButton jButtonStack;
     private javax.swing.JMenu jItemAyuda;
     private javax.swing.JMenuBar jMenu;
     private javax.swing.JMenuItem jMenuItemAcercaDe;

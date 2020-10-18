@@ -28,18 +28,27 @@ public class Acerca extends javax.swing.JDialog {
         jLabelIntegrante2 = new javax.swing.JLabel();
         jLabelIntegrante3 = new javax.swing.JLabel();
         jLabelIntegrante4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jLabelHechoPor.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabelHechoPor.setText("Proyecto realizado por:");
 
         jLabelIntegrante1.setText("Sebastián Felipe Pérez Leal");
 
-        jLabelIntegrante2.setText("Integrante");
+        jLabelIntegrante2.setText("Jhon Albert Navia");
 
-        jLabelIntegrante3.setText("Integrante");
+        jLabelIntegrante3.setText("Erwin Soto Sarmiento");
 
-        jLabelIntegrante4.setText("Integrante");
+        jLabelIntegrante4.setText("Juan José Ramírez");
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Estructuras de Datos");
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Universidad Nacional de Colombia");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -51,11 +60,13 @@ public class Acerca extends javax.swing.JDialog {
                     .addComponent(jLabelHechoPor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelIntegrante1)
                             .addComponent(jLabelIntegrante3)
                             .addComponent(jLabelIntegrante2)
-                            .addComponent(jLabelIntegrante4))
-                        .addGap(0, 95, Short.MAX_VALUE)))
+                            .addComponent(jLabelIntegrante4)
+                            .addComponent(jLabelIntegrante1)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -63,15 +74,19 @@ public class Acerca extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelHechoPor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelIntegrante1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelIntegrante3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelIntegrante2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelIntegrante1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelIntegrante4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(12, 12, 12))
         );
 
         pack();
@@ -120,6 +135,8 @@ public class Acerca extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelHechoPor;
     private javax.swing.JLabel jLabelIntegrante1;
     private javax.swing.JLabel jLabelIntegrante2;
