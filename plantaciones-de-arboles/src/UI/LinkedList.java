@@ -72,7 +72,7 @@ public class LinkedList extends javax.swing.JFrame {
         jLabelTimer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTimer.setText("Timer");
 
-        jLabelCronometro.setText("0");
+        jLabelCronometro.setText("-");
 
         jLabelTime.setText("Tiempo:");
 
