@@ -45,12 +45,11 @@ class Main {
     }   
  
   public static void main(String[] args)throws ParseException {
-    Scanner reader = new Scanner(System.in);
-      QueueArrayGeneric<Date> fechas=new QueueArrayGeneric<Date>();
+    Scanner reader = new Scanner(System.in);     
       System.out.println("ingresa el numero de arboles a registrar"); 
       int num_arboles=reader.nextInt(); 
       System.out.println("ingresa el año, mes, dia seguido por un guion ejemplo 2018-12-15"); 
-           
+       QueueArrayGeneric<Date> fechas=new QueueArrayGeneric<Date>(num_arboles);     
       while(num_arboles>0){
         String fecha=reader.next();
         String [] parts =fecha.split("-");         
@@ -80,7 +79,7 @@ class Main {
   }
 }
 class QueueArrayGeneric<T> {
-    private static final int N = 50;
+    private static final int N = 10000000;
     private int front, rear, count;
     private ArrayList<T> qarray;
     //private T[] qarray;
