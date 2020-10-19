@@ -13,14 +13,23 @@ import java.text.ParseException;
 
 
 class Main {
+  public static double redondearDecimales(double valorInicial, int numeroDecimales) {
+        double parteEntera, resultado;
+        resultado = valorInicial;
+        parteEntera = Math.floor(resultado);
+        resultado=(resultado-parteEntera)*Math.pow(10, numeroDecimales);
+        resultado=Math.round(resultado);
+        resultado=(resultado/Math.pow(10, numeroDecimales))+parteEntera;
+        return resultado;
+    }
   public static double calcular_valor(int cantidad,QueueArrayGeneric fechas, int ano, int mes, int dia, int metro_cubico_arbol ){
     double valor=0;
     Date fechaFinal= new GregorianCalendar(ano, mes, dia).getTime();
     for (int i=0; i<cantidad; i++){
-      int ano_arbol=obtenerAnios((Date)fechas.dequeue(), fechaFinal);
-      System.out.println(ano_arbol);
-      double metro_cubico= Math.pow((ano_arbol/0.2)/2,2)*(ano_arbol*0.2);
-      double valor_arbol=metro_cubico_arbol*metro_cubico;
+      int ano_arbol=obtenerAnios((Date)fechas.dequeue(), fechaFinal);      
+      double metro_cubico=(3.1415*(Math.pow((ano_arbol/0.2)/2,2))*(ano_arbol*1.5))/1000000; 
+      double metro_redonde=redondearDecimales(metro_cubico,2);
+      double valor_arbol=metro_redonde*metro_cubico_arbol;
       valor=valor+valor_arbol;
     }
     return valor;              
@@ -45,11 +54,13 @@ class Main {
     }   
  
   public static void main(String[] args)throws ParseException {
-    Scanner reader = new Scanner(System.in);     
+    Scanner reader = new Scanner(System.in);
+      
       System.out.println("ingresa el numero de arboles a registrar"); 
       int num_arboles=reader.nextInt(); 
       System.out.println("ingresa el año, mes, dia seguido por un guion ejemplo 2018-12-15"); 
-       QueueArrayGeneric<Date> fechas=new QueueArrayGeneric<Date>(num_arboles);     
+      QueueArrayGeneric<Date> fechas=new QueueArrayGeneric<Date>(num_arboles);
+           
       while(num_arboles>0){
         String fecha=reader.next();
         String [] parts =fecha.split("-");         
@@ -89,7 +100,7 @@ class QueueArrayGeneric<T> {
     }
 
     public QueueArrayGeneric(int n) {
-        front = rear = count = 0;
+         front = rear = count = 0;
          qarray= new ArrayList<T>();
         //qarray = (T[]) new Object[n];
     }
