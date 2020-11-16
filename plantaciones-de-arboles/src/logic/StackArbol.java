@@ -32,4 +32,8 @@ public class StackArbol<Arbol> {
             tArray[top]=item;
 	top++;
 	}
+        
+        public Arbol peek(){
+            return tArray[top];
+	}
 }

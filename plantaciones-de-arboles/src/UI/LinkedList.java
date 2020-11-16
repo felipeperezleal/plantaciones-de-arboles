@@ -134,7 +134,7 @@ public class LinkedList extends javax.swing.JFrame {
     int time = 1;
     private void jButtonEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEjecutarActionPerformed
         // TODO add your handling code here:
-        cronometro = new Timer(1000, new ActionListener() {
+        cronometro = new Timer(1, new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {

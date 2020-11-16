@@ -62,7 +62,7 @@ public class Terreno {
         return numeroColumnas;
     }
 
-    public void setNumeroFilas(int NumeroColumnas) {
+    public void setNumeroColumnas(int NumeroColumnas) {
         this.numeroColumnas = numeroColumnas;
     }
 
@@ -82,7 +82,7 @@ public class Terreno {
                 ", tipo de tierra =" + tierra +
                 ", tipo de clima =" + clima +
                 ", ubicacion geografica =" + ubicacion +
-                ", numero de filas y columnas=" + filas + "x" + columnas +
+                ", numero de filas y columnas=" + numeroFilas + "x" + numeroColumnas +
                 ", area de definida para cada arbol =" + areaCasilla + "}";
 
     }

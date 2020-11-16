@@ -12,11 +12,29 @@ public class Arbol {
     private String especie;
 
     //Constructor
+    public Arbol(String nombre) {
+        this.nombre = nombre;
+    }
+    
     public Arbol(String nombre, String tipo, String coordenadas) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.coordenadas = coordenadas;
     }
+
+    public Arbol(String nombre, String tipo, int etapaDeCrecimiento, String desarrollo, String requerimientosNutricionales, String coordenadas, String enfermedades, String genero, String especie) {
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.etapaDeCrecimiento = etapaDeCrecimiento;
+        this.desarrollo = desarrollo;
+        this.requerimientosNutricionales = requerimientosNutricionales;
+        this.coordenadas = coordenadas;
+        this.enfermedades = enfermedades;
+        this.genero = genero;
+        this.especie = especie;
+    }
+    
+    
     
     //Getters y Setters
     public String getNombre() {

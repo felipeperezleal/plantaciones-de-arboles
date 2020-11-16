@@ -1,15 +1,18 @@
 package UI;
 
+import data.Arbol;
 import logic.StackArbol;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
 
 public class Stack extends javax.swing.JFrame {
     GUI menu = logic.Main.getGUI();
     Timer cronometro;
-    Timer cronometro2;
     StackArbol stack = new StackArbol();
     
     /**
@@ -19,7 +22,13 @@ public class Stack extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Plantaciones de Árboles - Pila");
         this.setLocationRelativeTo(this);
-        this.setResizable(false);       
+        this.setResizable(false);  
+        
+        try{
+            this.jTextFieldTop.setText((String) stack.peek());
+        } catch (Exception ex){
+            
+        }
     }
 
     /**
@@ -39,22 +48,19 @@ public class Stack extends javax.swing.JFrame {
         jLabelSize = new javax.swing.JLabel();
         jButtonPush = new javax.swing.JButton();
         jButtonPop = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
-        jButtonVolver = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jTextFieldItem = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabelTimer = new javax.swing.JLabel();
-        jLabelCronometro = new javax.swing.JLabel();
-        jLabelSeconds = new javax.swing.JLabel();
         jLabelMiliseconds = new javax.swing.JLabel();
-        jLabelCronometro2 = new javax.swing.JLabel();
+        jLabelCronometro = new javax.swing.JLabel();
+        jButtonVolver = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabelTop = new javax.swing.JLabel();
         jTextFieldTop = new javax.swing.JTextField();
         jLabelPop = new javax.swing.JLabel();
         jTextFieldPop = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +91,11 @@ public class Stack extends javax.swing.JFrame {
         jLabelSize.setText("10");
 
         jButtonPush.setText("Push");
+        jButtonPush.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPushActionPerformed(evt);
+            }
+        });
 
         jButtonPop.setText("Pop");
         jButtonPop.addActionListener(new java.awt.event.ActionListener() {
@@ -93,12 +104,11 @@ public class Stack extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel2.setText("Item de la tabla:");
 
-        jButtonVolver.setText("Volver al inicio");
-        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVolverActionPerformed(evt);
+                jTextFieldItemActionPerformed(evt);
             }
         });
 
@@ -109,26 +119,28 @@ public class Stack extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextFieldSize)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonSize, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonPush, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonPush, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jButtonPop, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonPushAll, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldItem))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabelTamañoActual)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelSize)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabelSize))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonPop, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                        .addComponent(jTextFieldSize, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonPushAll, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(jButtonSize, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,26 +155,29 @@ public class Stack extends javax.swing.JFrame {
                     .addComponent(jButtonSize))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonPush)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
+                    .addComponent(jTextFieldItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonPushAll)
                     .addComponent(jButtonPop)
-                    .addComponent(jButtonVolver))
+                    .addComponent(jButtonPush))
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
         jLabelTimer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTimer.setText("Timer");
 
+        jLabelMiliseconds.setText("Tiempo:");
+
         jLabelCronometro.setText("0");
 
-        jLabelSeconds.setText("Segundos:");
-
-        jLabelMiliseconds.setText("Milisegundos:");
-
-        jLabelCronometro2.setText("0");
+        jButtonVolver.setText("Volver al Menú Principal");
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -173,29 +188,25 @@ public class Stack extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelTimer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelMiliseconds, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelSeconds, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabelMiliseconds)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelCronometro, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                            .addComponent(jLabelCronometro2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                        .addComponent(jLabelCronometro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButtonVolver)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap()
                 .addComponent(jLabelTimer)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCronometro)
-                    .addComponent(jLabelSeconds))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelMiliseconds)
-                    .addComponent(jLabelCronometro2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelCronometro))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonVolver)
+                .addGap(15, 15, 15))
         );
 
         jLabel1.setText("Pila:");
@@ -203,17 +214,15 @@ public class Stack extends javax.swing.JFrame {
         jLabelTop.setText("Top:");
 
         jTextFieldTop.setText("null");
+        jTextFieldTop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldTopActionPerformed(evt);
+            }
+        });
 
         jLabelPop.setText("Pop:");
 
         jTextFieldPop.setText("null");
-
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -221,51 +230,48 @@ public class Stack extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(181, 181, 181))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelTop)
-                            .addComponent(jLabelPop))
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldTop, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
-                            .addComponent(jTextFieldPop)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(jLabelTop)
+                    .addComponent(jLabelPop))
+                .addGap(61, 61, 61)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldTop)
+                    .addComponent(jTextFieldPop, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(86, 86, 86))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldTop, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelTop))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldPop, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelPop)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldTop, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTop))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldPop, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPop))
+                .addGap(0, 15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -283,27 +289,21 @@ public class Stack extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    int seconds = 1;
     int miliseconds = 1;
     private void jButtonPushAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPushAllActionPerformed
         // TODO add your handling code here:
        
-        cronometro = new Timer(1, new ActionListener() {
+        /*cronometro = new Timer(1, new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                jLabelCronometro2.setText(String.valueOf(miliseconds));
-                jLabelCronometro.setText(String.valueOf(seconds));
+                jLabelCronometro.setText(String.valueOf(miliseconds));
                 miliseconds++;
-                if (miliseconds == 99){
-                    miliseconds = 0;
-                    seconds++;
-                }
             }
         });      
         cronometro.start();
         
-        jButtonPushAll.setEnabled(false);
+        jButtonPushAll.setEnabled(false);*/
     }//GEN-LAST:event_jButtonPushAllActionPerformed
 
     private void jButtonSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSizeActionPerformed
@@ -327,29 +327,60 @@ public class Stack extends javax.swing.JFrame {
 
     private void jButtonPopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPopActionPerformed
         // TODO add your handling code here:
-        cronometro = new Timer(1, new ActionListener() {
+        /*cronometro = new Timer(1, new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                jLabelCronometro2.setText(String.valueOf(miliseconds));
-                jLabelCronometro.setText(String.valueOf(seconds));
+                jLabelCronometro.setText(String.valueOf(miliseconds));
                 miliseconds++;
-                if (miliseconds == 99){
-                    miliseconds = 0;
-                    seconds++;
-                }
             }
         });      
         cronometro.start();
         
-        jButtonPop.setEnabled(false);
+        jButtonPop.setEnabled(false);*/
     }//GEN-LAST:event_jButtonPopActionPerformed
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        try{
+            cronometro.stop();
+        } catch(Exception ex){
+            
+        }
+        
         menu.setVisible(true);
     }//GEN-LAST:event_jButtonVolverActionPerformed
+
+    private void jButtonPushActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPushActionPerformed
+        // TODO add your handling code here:
+        
+        try{
+            stack.push(this.jTextFieldItem.getText());
+        } catch(Exception ex){
+            JOptionPane.showMessageDialog(this, "No existe;");
+        }
+        
+        /*cronometro = new Timer(1, new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jLabelCronometro.setText(String.valueOf(miliseconds));
+                miliseconds++;
+            }
+        });      
+        cronometro.start();
+        
+        jButtonPush.setEnabled(false);*/
+    }//GEN-LAST:event_jButtonPushActionPerformed
+
+    private void jTextFieldItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldItemActionPerformed
+
+    private void jTextFieldTopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTopActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldTopActionPerformed
 
     /**
      * @param args the command line arguments
@@ -392,22 +423,19 @@ public class Stack extends javax.swing.JFrame {
     private javax.swing.JButton jButtonPushAll;
     private javax.swing.JButton jButtonSize;
     private javax.swing.JButton jButtonVolver;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCronometro;
-    private javax.swing.JLabel jLabelCronometro2;
     private javax.swing.JLabel jLabelMiliseconds;
     private javax.swing.JLabel jLabelPop;
-    private javax.swing.JLabel jLabelSeconds;
     private javax.swing.JLabel jLabelSize;
     private javax.swing.JLabel jLabelTamañoActual;
     private javax.swing.JLabel jLabelTimer;
     private javax.swing.JLabel jLabelTop;
-    private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextFieldItem;
     private javax.swing.JTextField jTextFieldPop;
     private javax.swing.JTextField jTextFieldSize;
     private javax.swing.JTextField jTextFieldTop;
