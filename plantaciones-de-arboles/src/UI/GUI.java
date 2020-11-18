@@ -3,11 +3,11 @@ package UI;
 import data.Arbol;
 import java.util.Random;
 import javax.swing.table.DefaultTableModel;
-import logic.LinkedListArbol;
+import logic.ArrayListArbol;
 
 public class GUI extends javax.swing.JFrame {
     static DefaultTableModel datos;
-    static LinkedListArbol lista;
+    static ArrayListArbol lista;
 
     /**
      * Creates new form UI
@@ -17,7 +17,7 @@ public class GUI extends javax.swing.JFrame {
         this.setTitle("Plantaciones de Árboles");
         this.setLocationRelativeTo(this);
         this.setResizable(false);
-        lista = new LinkedListArbol();
+        lista = new ArrayListArbol();
         
         datos = new DefaultTableModel();
         datos.addColumn("Nombre");
@@ -53,8 +53,8 @@ public class GUI extends javax.swing.JFrame {
             fila[6] = dato7;
             fila[7] = dato8;
             fila[8] = dato9;
-            /*Arbol tree = new Arbol(dato1, dato2, num, dato4, dato5, dato6, dato7, dato8, dato9);
-            lista.insert(tree);*/
+            Arbol tree = new Arbol(dato1, dato2, num, dato4, dato5, dato6, dato7, dato8, dato9);
+            lista.insert(tree);
             datos.addRow(fila);
         }
         
@@ -98,7 +98,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jButtonLinkedList.setText("Lista Enlazada");
+        jButtonLinkedList.setText("Salir");
         jButtonLinkedList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonLinkedListActionPerformed(evt);
@@ -238,12 +238,13 @@ public class GUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonStack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonLinkedList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonQueue, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                    .addComponent(jLabelEstructura)
-                    .addComponent(jButtonBinaryTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButtonStack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonQueue, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                        .addComponent(jLabelEstructura)
+                        .addComponent(jButtonBinaryTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonLinkedList, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -259,16 +260,16 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabelEstructura)
                     .addComponent(jLabelTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonQueue)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonLinkedList)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jButtonStack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonBinaryTree)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonBinaryTree)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonLinkedList)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -338,9 +339,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonLinkedListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLinkedListActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        LinkedList listaEnlazada = new LinkedList();
-        listaEnlazada.setVisible(true);
+        System.exit(1);
     }//GEN-LAST:event_jButtonLinkedListActionPerformed
 
     private void jButtonStackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStackActionPerformed
