@@ -90,14 +90,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButtonStack" max="32767" attributes="0"/>
-                          <Component id="jButtonQueue" alignment="0" pref="126" max="32767" attributes="0"/>
-                          <Component id="jLabelEstructura" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonBinaryTree" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="jButtonLinkedList" alignment="0" min="-2" pref="126" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jButtonStack" max="32767" attributes="0"/>
+                      <Component id="jButtonQueue" alignment="0" pref="126" max="32767" attributes="0"/>
+                      <Component id="jLabelEstructura" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonBinaryTree" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButtonLinkedList" alignment="0" pref="126" max="32767" attributes="0"/>
+                      <Component id="jButtonHashing" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -123,10 +122,12 @@
                       <Component id="jScrollPane1" min="-2" pref="227" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jButtonQueue" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jButtonStack" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jButtonBinaryTree" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jButtonHashing" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jButtonLinkedList" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -199,6 +200,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBinaryTreeActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonHashing">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Hashing"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonHashingActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
