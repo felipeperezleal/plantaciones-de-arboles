@@ -1,7 +1,9 @@
-    package logic;
+package logic;
+
+import logic.Node;    
 
 public class BinaryTreeArbol<Arbol>{
-    private Node root;
+    public Node root;
     
     public BinaryTreeArbol() {
         root = null;
@@ -64,33 +66,18 @@ public class BinaryTreeArbol<Arbol>{
     }
     
     public void traverseBST() {
-        System.out.print("The tree is:");
         if(root!= null)
             traverse(root);
         else
-            System.out.print(" " + "Empty");
+            System.out.print("Empty");
         System.out.println();
     }
     private void traverse(Node ptr) {
         if(ptr.left != null)
             traverse(ptr.left);
-        System.out.print(" " + ptr.data);
+        System.out.print(ptr.data);
         if(ptr.right != null)
             traverse(ptr.right);
     }
-    
-    //Inner Class: Node
-    private class Node {
-        private Node left;
-        private int data;
-        private Node right;
-        public Node(){
-            this(0);
-        }
-        public Node(int data) {
-            left = null;
-            this.data = data;
-            right = null;
-        }
-    }
+
 }

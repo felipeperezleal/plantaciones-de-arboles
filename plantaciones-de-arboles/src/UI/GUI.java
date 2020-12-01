@@ -7,7 +7,7 @@ import logic.ArrayListArbol;
 
 public class GUI extends javax.swing.JFrame {
     static DefaultTableModel datos;
-    static ArrayListArbol lista;
+    public static ArrayListArbol lista;
 
     /**
      * Creates new form UI
