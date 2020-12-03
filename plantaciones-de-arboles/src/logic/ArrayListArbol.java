@@ -56,6 +56,7 @@ public class ArrayListArbol<Arbol> {
                 position++;
         return found;
     }
+    
     public void output() {
         System.out.print("List: ");
         int j = 0;

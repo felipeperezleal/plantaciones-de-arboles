@@ -22,10 +22,11 @@ public class Stack extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Plantaciones de Árboles - Pila");
         this.setLocationRelativeTo(this);
-        this.setResizable(false);  
+        this.setResizable(false);
         
         try{
-            this.jTextFieldTop.setText((String) stack.peek());
+            Arbol tree = (Arbol) stack.peek();
+            this.jTextFieldTop.setText(tree.getNombre());
         } catch (Exception ex){
             
         }
@@ -106,6 +107,7 @@ public class Stack extends javax.swing.JFrame {
 
         jLabel2.setText("Item de la tabla:");
 
+        jTextFieldItem.setText("Escriba el nombre de un árbol...");
         jTextFieldItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldItemActionPerformed(evt);
@@ -289,21 +291,25 @@ public class Stack extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    int miliseconds = 1;
+    int time = 1;
     private void jButtonPushAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPushAllActionPerformed
         // TODO add your handling code here:
        
-        /*cronometro = new Timer(1, new ActionListener() {
+        cronometro = new Timer(1, new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                jLabelCronometro.setText(String.valueOf(miliseconds));
-                miliseconds++;
+                jLabelCronometro.setText(String.valueOf(time));
+                time++;
             }
         });      
         cronometro.start();
         
-        jButtonPushAll.setEnabled(false);*/
+        jButtonPushAll.setEnabled(false);
+        
+        for(int i = 0; i < Integer.parseInt(jLabelSize.getText()); i++){
+            stack.push(UI.GUI.lista.larray[i]);
+        }
     }//GEN-LAST:event_jButtonPushAllActionPerformed
 
     private void jButtonSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSizeActionPerformed
@@ -338,6 +344,8 @@ public class Stack extends javax.swing.JFrame {
         cronometro.start();
         
         jButtonPop.setEnabled(false);*/
+        
+        stack.pop();
     }//GEN-LAST:event_jButtonPopActionPerformed
 
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
@@ -355,23 +363,36 @@ public class Stack extends javax.swing.JFrame {
     private void jButtonPushActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPushActionPerformed
         // TODO add your handling code here:
         
-        try{
-            stack.push(this.jTextFieldItem.getText());
-        } catch(Exception ex){
-            JOptionPane.showMessageDialog(this, "No existe;");
-        }
-        
-        /*cronometro = new Timer(1, new ActionListener() {
+        cronometro = new Timer(1, new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                jLabelCronometro.setText(String.valueOf(miliseconds));
-                miliseconds++;
+                jLabelCronometro.setText(String.valueOf(time));
+                time++;
             }
         });      
         cronometro.start();
         
-        jButtonPush.setEnabled(false);*/
+        this.jButtonPush.setEnabled(false);
+        String item = jTextFieldItem.getText();
+        boolean found = false;
+        int position = 0;
+        Arbol tree = (Arbol) UI.GUI.lista.larray[position];
+        while(position < UI.GUI.lista.count)
+            tree = (Arbol) UI.GUI.lista.larray[position];
+            if(tree.getNombre() == item) {
+                stack.push(tree);
+                found = true;
+            }
+            else
+                position++;
+
+        if(!found){
+            JOptionPane.showMessageDialog(this, "Item no encontrado.");
+        }
+        this.jButtonPush.setEnabled(true);
+        
+        cronometro.stop();
     }//GEN-LAST:event_jButtonPushActionPerformed
 
     private void jTextFieldItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldItemActionPerformed
