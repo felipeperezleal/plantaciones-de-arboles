@@ -14,11 +14,15 @@ public class BinaryTree extends javax.swing.JFrame {
     Timer cronometro;
     BinaryTreeArbol binTree = new BinaryTreeArbol();
     Node miniArbol;
+
     public BinaryTree() {
         initComponents();
         this.setTitle("Plantaciones de Árboles - Árbol Binario");
         this.setLocationRelativeTo(this);
         this.setResizable(false);
+        this.jButtonParent.setSize(110, 100);
+        this.jButtonLeft.setSize(110, 100);
+        this.jButtonRight.setSize(110, 100);
     }
 
     /**
@@ -30,6 +34,7 @@ public class BinaryTree extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollBar1 = new javax.swing.JScrollBar();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButtonOrder = new javax.swing.JButton();
@@ -41,10 +46,10 @@ public class BinaryTree extends javax.swing.JFrame {
         jLabelCronometro = new javax.swing.JLabel();
         jLabelTime = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButtonRight = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jButtonParent = new javax.swing.JButton();
         jButtonLeft = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jButtonRight = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -151,23 +156,13 @@ public class BinaryTree extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButtonRight.setText("Hijo derecho");
+        jLabel2.setText("Vista mini árbol:");
 
         jButtonParent.setText("Padre");
-        jButtonParent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonParentActionPerformed(evt);
-            }
-        });
 
         jButtonLeft.setText("Hijo Izquierdo");
-        jButtonLeft.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLeftActionPerformed(evt);
-            }
-        });
 
-        jLabel2.setText("Vista mini árbol:");
+        jButtonRight.setText("Hijo Derecho");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -176,47 +171,42 @@ public class BinaryTree extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel2)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jButtonLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(124, 124, 124)
-                .addComponent(jButtonRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(105, 105, 105))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(244, 244, 244)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(jButtonLeft)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonRight)
+                .addGap(129, 129, 129))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(208, 208, 208)
                 .addComponent(jButtonParent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(220, 220, 220))
+                .addGap(235, 235, 235))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonParent, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonRight, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(3, 3, 3)
+                .addComponent(jButtonParent, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonLeft, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                    .addComponent(jButtonRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jButtonRight.setSize(100, 110);
-        jButtonRight.setSize(100, 110);
-        jButtonRight.setSize(100, 110);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,55 +243,102 @@ public class BinaryTree extends javax.swing.JFrame {
         cronometro.start();
         this.jButtonOrder.setEnabled(false);
         
-        for(int i = 0; i < UI.GUI.lista.larray.length; i++){
-            Arbol tree = (Arbol) UI.GUI.lista.larray[i];
+        int j = 0;
+        while(j != UI.GUI.lista.count) {
+            Arbol tree = (Arbol) UI.GUI.lista.larray[j];
             binTree.insertBST(tree.getEtapaDeCrecimiento());
+            j++;
         }
         cronometro.stop();
         this.jButtonOrder.setEnabled(true);
-        miniArbol = binTree.root;
+        
         try{
-            this.jButtonParent.setText(String.valueOf(miniArbol.data));
-            this.jButtonLeft.setText(String.valueOf(miniArbol.left.data));
-            this.jButtonRight.setText(String.valueOf(miniArbol.right.data));
+            this.jButtonParent.setText(String.valueOf(binTree.puntero.data));
         }catch(Exception ex){
 
         }
+        try{
+            this.jButtonLeft.setVisible(true);
+            this.jButtonLeft.setText(String.valueOf(binTree.puntero.left.data));
+        }catch(Exception ex){
+            this.jButtonLeft.setVisible(false);
+
+        }
+        try{
+            this.jButtonRight.setVisible(true);
+            this.jButtonRight.setText(String.valueOf(binTree.puntero.right.data));
+        }catch(Exception ex){
+            this.jButtonRight.setVisible(false);
+        }
         
+        this.jButtonParent.setSize(110, 100);
+        this.jButtonLeft.setSize(110, 100);
+        this.jButtonRight.setSize(110, 100);
         
     }//GEN-LAST:event_jButtonOrderActionPerformed
 
-    private void jButtonLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLeftActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonLeftActionPerformed
-
-    private void jButtonParentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonParentActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButtonParentActionPerformed
-
     private void jButtonGoLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGoLeftActionPerformed
         // TODO add your handling code here:
-        miniArbol = miniArbol.left;
-        try{
-            this.jButtonParent.setText(String.valueOf(binTree.root.data));
-            this.jButtonLeft.setText(String.valueOf(binTree.root.left.data));
-            this.jButtonRight.setText(String.valueOf(binTree.root.right.data));
-        }catch(Exception ex){
+        if(binTree.puntero == null || binTree.puntero.left == null){
+            JOptionPane.showMessageDialog(this, "El nodo izquierdo es nulo.");
+        }else{
+            binTree.goLeft();
+                try{
+                this.jButtonParent.setText(String.valueOf(binTree.puntero.data));
+            }catch(Exception ex){
 
+            }
+            try{
+                this.jButtonLeft.setVisible(true);
+                this.jButtonLeft.setText(String.valueOf(binTree.puntero.left.data));
+            }catch(Exception ex){
+                this.jButtonLeft.setVisible(false);
+
+            }
+            try{
+                this.jButtonRight.setVisible(true);
+                this.jButtonRight.setText(String.valueOf(binTree.puntero.right.data));
+            }catch(Exception ex){
+                this.jButtonRight.setVisible(false);
+            }
+
+            this.jButtonParent.setSize(110, 100);
+            this.jButtonLeft.setSize(110, 100);
+            this.jButtonRight.setSize(110, 100);
         }
     }//GEN-LAST:event_jButtonGoLeftActionPerformed
 
     private void jButtonGoRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGoRightActionPerformed
         // TODO add your handling code here:
-        miniArbol = miniArbol.right;
-        try{
-            this.jButtonParent.setText(String.valueOf(binTree.root.data));
-            this.jButtonLeft.setText(String.valueOf(binTree.root.left.data));
-            this.jButtonRight.setText(String.valueOf(binTree.root.right.data));
-        }catch(Exception ex){
+        if( binTree.puntero == null || binTree.puntero.right == null){
+            JOptionPane.showMessageDialog(this, "El nodo derecho es nulo.");
+        }else{
+            binTree.goRight();
+            try{
+                this.jButtonParent.setText(String.valueOf(binTree.puntero.data));
+            }catch(Exception ex){
 
+            }
+            try{
+                this.jButtonLeft.setVisible(true);
+                this.jButtonLeft.setText(String.valueOf(binTree.puntero.left.data));
+            }catch(Exception ex){
+                this.jButtonLeft.setVisible(false);
+
+            }
+            try{
+                this.jButtonRight.setVisible(true);
+                this.jButtonRight.setText(String.valueOf(binTree.puntero.right.data));
+            }catch(Exception ex){
+                this.jButtonRight.setVisible(false);
+            }
+
+            this.jButtonParent.setSize(110, 100);
+            this.jButtonLeft.setSize(110, 100);
+            this.jButtonRight.setSize(110, 100);
         }
+        
+        
     }//GEN-LAST:event_jButtonGoRightActionPerformed
 
     /**
@@ -357,5 +394,6 @@ public class BinaryTree extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollBar jScrollBar1;
     // End of variables declaration//GEN-END:variables
 }

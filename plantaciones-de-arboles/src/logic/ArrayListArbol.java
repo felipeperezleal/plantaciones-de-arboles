@@ -2,7 +2,7 @@ package logic;
 
 public class ArrayListArbol<Arbol> {
     static private final int N=5;
-    private int position, count;
+    public int position, count;
     public Arbol[] larray;
     
     public ArrayListArbol() {

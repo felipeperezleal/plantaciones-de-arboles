@@ -4,6 +4,7 @@ import logic.Node;
 
 public class BinaryTreeArbol<Arbol>{
     public Node root;
+    public Node puntero;
     
     public BinaryTreeArbol() {
         root = null;
@@ -11,6 +12,7 @@ public class BinaryTreeArbol<Arbol>{
     
     public void insertBST(int num) {
         root = insert(num,root);
+        puntero = root;
     }
     
     private Node insert(int num, Node p) {
@@ -80,4 +82,11 @@ public class BinaryTreeArbol<Arbol>{
             traverse(ptr.right);
     }
 
+    public void goLeft(){
+        puntero = puntero.left;
+    }
+    
+    public void goRight(){
+        puntero = puntero.right;
+    }
 }
