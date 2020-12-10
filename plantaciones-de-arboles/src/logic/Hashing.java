@@ -1,4 +1,4 @@
-public class ChainingHashTable {
+public class HashingArbol {
 	private LinkedList[] harray;
 	public ChainingHashTable(int size) {
 		harray = new LinkedList[size];
